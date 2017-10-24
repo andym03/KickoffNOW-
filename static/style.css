@@ -3,8 +3,13 @@
 Code snippet by maridlcrmn for Bootsnipp.com
 Credits: http://bootsnipp.com/snippets/featured/toggle-navbar-with-slide-down-animation
 */
-
-.navbar-brand { position: relative; z-index: 2; }
+.centered-navbar {
+	position:absolute;
+	left:25%;
+	width:50%;
+	text-align:center;
+    margin-top: -11px;
+	}
 
 .navbar-nav.navbar-right .btn {
 	position: relative;
@@ -14,15 +19,30 @@ Credits: http://bootsnipp.com/snippets/featured/toggle-navbar-with-slide-down-an
 	margin-right: 20px;
 	transition: transform 0.3s;
 }
+#map{
+	height: auto;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    margin-top: -50px;
+}
+.full { min-height: 100%; height:auto;}
 
 .navbar .navbar-collapse { position: relative; overflow: scroll; }
 .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
 
 .navbar .nav-collapse { position: absolute; display: block; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
-.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
-.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar.navbar-default .nav-collapse { background-color: #e74c3c; }
+.navbar.navbar-inverse .nav-collapse { background-color: #e74c3c; }
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
+
+.navbar-inverse {
+	background-color: #e74c3c;
+	border-color: #e74c3c;
+}
 
 .btn.btn-circle { border-radius: 50px; }
 .btn.btn-outline { background-color: transparent; }
