@@ -1,0 +1,105 @@
+{% extends "parent-all.html" %}
+{% block content %}
+<style type="text/css">
+	/* Home photos gallery */
+	.thumbnail img {
+		width: 250px;
+		height: 225px;
+	}
+</style>
+<div class="container-fluid">
+	<div class="row">
+		<div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+			<button type="button" id="showTheFoodsBtn" class="btn btn-default" style="max-width: 160px; margin-bottom: 25px;">Show the foods!</button>
+			<p id="statusText">
+
+			</p>
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						
+						<div id="foodsContainer">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js"></script>
+
+<script type="text/javascript">
+
+document.getElementById('showTheFoodsBtn').addEventListener("click", getLocation);
+
+// Try get the users Coordinates using HTML5 Geolocation
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition, positionError);
+	} else {
+		console.log("Geolocation is not supported by this browser.");
+	}
+}
+
+function positionError(error) {
+	// error.code == 1 means permission denied
+	document.getElementById('statusText').innerHTML = "Error getting position: " + error.code;
+	sendFoodRequest("69", "69");
+}
+
+function showPosition(position) {
+	// document.getElementById('statusText').innerHTML = ("Latitude: " + position.coords.latitude +
+	// "\nLongitude: " + position.coords.longitude);
+	sendFoodRequest(position.coords.latitude, position.coords.longitude);
+}
+
+function sendFoodRequest(xCoord, yCoord) {
+	httpRequest = new XMLHttpRequest();
+
+	if (xCoord != 69 && yCoord != 69) {  // Request WITH X and Y Params
+		httpRequest.open('GET', '/nearby/?X=' + xCoord + '&Y=' + yCoord, true);
+	} else {  // user declined or some other failure occured
+		httpRequest.open('GET', '/nearby/', true);
+	}
+
+	// Declare function that gets called when we get a response from backend.
+	httpRequest.onreadystatechange = function(){
+		if (httpRequest.readyState === XMLHttpRequest.DONE) {
+			if (httpRequest.status === 200) {
+				var decodedResponse = JSON.parse(httpRequest.responseText);
+				var newFoodsHTML = `<h3>Nearby Restaurants:</h3>
+									<p>${decodedResponse[0]}</p>`;
+				
+				for (food of decodedResponse[1].slice(0,12)) {
+					imagesObj = JSON.parse(food.imagesJSON)
+					newFoodsHTML += `<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+										<a class="thumbnail" href="/restaurants/?ID=${food.restaurant}?showMenu=${food.id}">
+											<img class="img-responsive" src="${imagesObj[0].imageURL}">
+											<h6 style="text-align: center">${food.name}</h6>
+										</a>
+									</div>`
+				}
+				
+				document.getElementById('foodsContainer').innerHTML = newFoodsHTML;
+
+				
+				// Do something useful with the response...
+			} else {
+				document.getElementById('statusText').innerHTML += '<br>Problem with the AJAX response (status not 200)';
+			}
+		}
+	};
+
+	httpRequest.send();
+}
+
+
+
+</script>
+
+{% endblock %}

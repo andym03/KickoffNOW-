@@ -1,0 +1,366 @@
+{% extends "parent-all.html" %}
+{% block content %}
+<script src="/static/restaurant_page.js"></script>
+<script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js"></script>
+<style type="text/css">
+	.thumbnail {
+		padding:0px;
+	}
+	.thumb img {
+		width: 150px;
+		height: 150px;
+	}
+</style>
+<script>
+	$(document).ready(function() {
+		$('#media').carousel({
+			pause: true,
+			interval: false,
+		});
+		// var url = window.location;
+		// $('.fb-share-button').attr('data-href', url);
+	});
+</script>
+
+<div class="container-fluid" style="margin-top: 30px">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 col-xs-12">
+			<!-- Useful: ratings http://bootsnipp.com/snippets/featured/functional-star-ratings -->
+			<div class="profile-head">
+				<div class="restaurant-header" style="background-image: url({{ restaurant.imageURL or 'http://placehold.it/400x300'}});">
+				</div>
+
+				<!-- Restaurant image -->
+				<div class="col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+					<img class="img-responsive" src="{{ restaurant.imageURL or 'http://placehold.it/400x300'}}" class="img-responsive" />
+					<br>
+					<!-- <div class="fb-share-button" data-href="https://munchr.cf" data-layout="button_count">
+					</div> -->
+					<div class="fb-share-button" data-href="http://munchr.cf/restaurants/%3FID%3D6" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmunchr.cf%2Frestaurants%2F%253FID%253D6&amp;src=sdkpreparse">Share</a></div>
+				</div>
+
+				<!-- Restaurant details -->
+				<div class="col-md-5 col-sm-5 col-xs-12">
+					<h5>{{ restaurant.name }}</h5>
+					<p><a href="#">{{ restaurant.address }}</a></p>
+					<ul>
+						<li><span class="glyphicon glyphicon-phone"></span><a href="#" title="call">{{ restaurant.phone }}</a></li>
+						<li><span class="glyphicon glyphicon-cutlery"></span><a href="/search?query={{ restaurant.categories }}&search_param=categories">{{ restaurant.categories }}</a></li>
+
+					</ul>
+				</div>
+
+				<!-- Restaurant rating -->
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="stars starrr pull-right" data-rating="{{ restaurant.ratings }}"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Restaurant Address Map -->
+	<div class="row" style="display: flex; justify-content: center; margin-top: 30px;">
+		<div class="col-md-8 col-xs-12" style="display: flex; justify-content:center">
+			<div id="map" style="width: 1000px; height: 300px; border: 1px solid #EEEEEE; border-radius: 4px"></div>
+		</div>
+	</div>
+
+	<!-- Photo section -->
+	<div class="row" style="margin-top: 30px">
+		<div class="col-md-8 col-md-offset-2 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading row">
+					<div class="col-md-4">
+					{% if showAlb %}
+						<ol class="breadcrumb panel-title" style="background: none; border: none;">
+							<li><a href="{{ url_for('restaurantDetails', restaurantID = restaurant.ID) }}">Menu</a></li>
+							<li class="active">{{ album.name }}</li>
+						</ol>
+					{% else %}
+						<h2 class="panel-title">Menu</h2>
+					{% endif %}
+					</div>
+					<div class="col-md-4 pull-right">
+						{% if not showAlb %}
+						<a href="/add-food/?restaurantID={{ restaurant.ID }}" style="text-decoration: none; color: white !important;">
+							<button class="btn btn-success pull-right" style="margin-right: 40px;">Add food</button>
+						</a>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="panel-body">
+				{% if showAlb %}
+					{% for img in album.images %}
+					<!-- here -->
+					<div class="col-md-3 col-xs-6 thumb">
+						<img class="img-responsive" src="{{ img.imageURL or 'http://placehold.it/150x150' }}" alt="">
+						<h6 style="text-align: center">{{ img.username }}</h6>
+					</div>
+					{% endfor %}
+				{% else %}
+					{% if albums is not none %}
+					<div class="carousel slide media-carousel" id="media">
+						<div class="carousel-inner">
+							{% for album in albums %}
+								{% if loop.index-1 == 0 %}
+							<div class="item active">
+								<div class="row">
+								{% elif (loop.index-1) % 4 == 0 %}
+							<div class="item">
+								<div class="row">
+								{% endif %}
+								<div class="col-md-3">
+									<a class="thumbnail" href="{{ url_for('showRestaurantMenu', restaurantID = restaurant.ID, albumID = album.id) }}"><img alt="" src="{% if album.images %}{{album.images[0].imageURL}}{% else %}http://placehold.it/150x150{% endif %}"></a>
+									<h5 style="text-align: center;">{{ album.name }}</h5>
+								</div>
+								{% if loop.index-1 % 4 == 3 or loop.index == loop.length %}
+								</div>
+							</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+						<a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+						<a data-slide="next" href="#media" class="right carousel-control">›</a>
+					</div>
+					{% endif %}
+				{% endif %}
+
+				{% if showAlb %}
+					<div class="col-md-12">
+						<form action="/add-food-photo" id="addPhotoForm" method="post" enctype="multipart/form-data" style="display: none; justify-content: center">
+							<span style="margin: 10px">
+								<label class="btn btn-success btn-lg" for="upload-file-selector">
+									<input type="file" id="upload-file-selector" style="display: none" onchange="photoSelected(this)" name="foodPhoto" >
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add photo
+								</label>
+							</span>
+							<input type="hidden" name="albumID" value="{{ album.id }}">
+							<input type="hidden" name="cameFrom" value="{{ request.url }}">
+						</form>
+
+						<script type="text/javascript">
+						function photoSelected(e) {
+							// move upload image thing to where button is
+							if (e.files.length > 0) {
+								if (document.getElementById('user').innerText == "Login") {
+									// Wait for user login
+									// 100ms recursive call of this function (asynchronous) until user logged in.
+									setTimeout(function() {
+										photoSelected(e);
+									}, 100);
+								} else {
+									document.getElementById('addPhotoForm').submit();
+								}
+							}
+						}
+						</script>
+					</div>
+				{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Review section -->
+	<div class="row" style="margin-top: 30px">
+		<div class="col-md-8 col-md-offset-2 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title">Restaurant Reviews</h2>
+				</div>
+				<div class="panel-body" style="display: flex; flex-direction: column;" id="reviewsContainerPanel">
+					<p id="flashMessage" style="display: none; text-align: center; color: red;" style="will-change: opacity; transition-property: opacity; transition-duration: .25s;"></p>
+					<!-- start form -->
+					<div class="well well-sm" style="background: none; border: none; display: none" id="leaveReview">  <!--  display:none will get removed by JS once it realises user is logged in  -->
+						<div class="pull-right">
+							<a class="btn btn-success btn-green" id="open-review-box">Leave a Review</a>
+						</div>
+						<div class="row" id="post-review-box" style="display:none;">
+							<div class="col-md-12">
+								<div accept-charset="UTF-8" id="reviewForm" onsubmit="submitOurReview();">
+									<div class="stars starrr pull-right" data-rating="0" onclick="hideStarsMessage()"></div>
+									<input id="ratings-hidden" type="hidden" value="0" required>
+
+									<textarea class="form-control animated" cols="50" id="new-review" placeholder="Enter your review here..." rows="5"></textarea>
+
+									<div class="text-right" style="margin-top: 20px;">
+										<a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancel</a>
+										<button class="btn btn-success btn-sm" type="button" onclick="submitOurReview();">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> <!-- end form -->
+
+					<script type="text/javascript">
+						function hideStarsMessage() {
+							document.getElementById('flashMessage').style.display = "none";
+						}
+
+						function submitOurReview() {
+							console.log("called");
+							// validation
+							if (document.getElementById('ratings-hidden').value == 0) {
+								document.getElementById('flashMessage').style.display = "initial";
+								document.getElementById('flashMessage').innerText = "Please choose a star rating on the right.";
+								return false;
+							} else if (document.getElementById('new-review').value == "") {
+								document.getElementById('flashMessage').style.display = "initial";
+								document.getElementById('flashMessage').innerText = "Please enter a review.";
+								return false;
+							}
+
+							if (!(/[0-9]{10,}/g.test(uid))) {
+								document.getElementById('flashMessage').style.display = "initial";
+								document.getElementById('flashMessage').innerText = "Couldn't get your Facebook user ID. Please login or try refreshing the page!";
+								setTimeout(function () {
+									document.getElementById('flashMessage').style.display = "none";
+								}, 4000);
+								return false;
+							}
+
+							var reviewObj = {
+								"username": document.getElementById('user').innerText,
+								"reviewText": document.getElementById("new-review").value,
+								"reviewRating": document.getElementById("ratings-hidden").value,
+								"restaurantID": {{ restaurant.ID }},
+								"userID": uid
+							};
+
+							console.log(reviewObj);
+							console.log(JSON.stringify(reviewObj));
+
+							// send by ajax
+							var oReq = new XMLHttpRequest();
+							oReq.addEventListener("load", function() {
+								console.log(this.responseText);
+								if (this.responseText == "Success") {
+									document.querySelector("#reviewForm").innerHTML = "<h4>Sweet!</h4><p>Your review has been posted below.</p>"
+								}
+							});
+							oReq.open("POST", "/addReview");
+							oReq.setRequestHeader("Content-Type", "application/json");
+							oReq.send(JSON.stringify(reviewObj));
+
+							// if successful, display success message and hide form.
+							return false; // Prevents the form from actually submitting
+						}
+					</script>
+					<div id="reviewsSection" style="width:100%">
+						<!-- JS will fill and keep this section updated -->
+					</div>
+				</div> <!-- end panel body -->
+			</div>  <!-- end panel -->
+		</div> <!-- end column -->
+	</div> <!-- end row -->
+</div> <!-- end container -->
+
+<script>
+var map;
+var infowindow;
+
+function initMap() {
+	var restaurantLoc = {lat: {{ restaurant.coordsX }}, lng: {{ restaurant.coordsY }}};
+
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: restaurantLoc,
+		zoom: 15
+	});
+
+	infowindow = new google.maps.InfoWindow();
+	var marker = new google.maps.Marker({
+		map: map,
+		position: restaurantLoc
+	});
+
+	infowindow.setContent("<strong>{{ restaurant.name }}</strong><br>{{ restaurant.address }}");
+	infowindow.open(map, marker);
+
+	marker.addListener('click', function() {
+		infowindow.open(map, marker);
+	});
+
+}
+
+var something = setInterval(reviewUpdater, 1000);
+
+function deleteReview(e) {
+	console.log("called with");
+	console.log(e);
+
+	var postJSON = JSON.stringify({"time" : e.getAttribute("time"), "user" : document.getElementById('user').innerText, "restaurantID" : {{ restaurant.ID }}})
+
+	// send by ajax
+	var delxhhtp = new XMLHttpRequest();
+	delxhhtp.addEventListener("load", function () {
+		console.log(this.responseText);
+		(function(elemArg, responseText) {
+			if (responseText == "Success") {
+				elemArg.parentElement.parentElement.parentElement.parentElement.parentElement.outerHTML = `<div style="display: flex;justify-content: center; align-items: center; padding-bottom: 50px">Review deleted</div>`
+			}
+		})(e, this.responseText)
+	});  // Disgusting
+	delxhhtp.open("POST", "/deleteReview");
+	delxhhtp.setRequestHeader("Content-Type", "application/json");
+	delxhhtp.send(postJSON);
+
+}
+
+function reviewUpdater() {
+
+	// hacky hiding of individual elements on pages where user should be logged in
+	document.getElementById('leaveReview').style.display = (document.getElementById('user').innerText != "Login" ? "initial" : "none");
+	document.getElementById('addPhotoForm').style.display = (document.getElementById('user').innerText != "Login" ? "flex" : "none");
+
+	var ajax = new XMLHttpRequest();
+	ajax.addEventListener("load", function() {
+		var reviewList = _.sortBy(JSON.parse(this.responseText), "time").reverse();
+
+		if (reviewList.length == 0) {
+			document.getElementById('reviewsSection').innerHTML = "No reviews";
+		} else {
+
+			var fullHTML = "";
+			for (review of reviewList) {
+
+				fullHTML += `<div style="display: flex">
+							   <div style="width:75px">
+								  <div class="thumbnail">
+									 <img class="review-profile-pic img-responsive" src="http://graph.facebook.com/${review.userID}/picture?type=large">
+								  </div>
+							   </div>
+							   <div style="width: calc(100% - 75px); padding-left: 20px;">
+								  <div class="panel panel-default">
+									 <div class="panel-heading" style="border-bottom: 1px solid #EEEEEE; margin-top: 0;">
+										<strong>${review.user}</strong>
+										<span class="text-muted pull-right"><span class="hidden-xs">
+										Posted at ${(new Date( review.time * 1000)).toLocaleString()}&nbsp;&nbsp;</span>${"<span class=\"glyphicon glyphicon-star\"></span>".repeat(review.rating)}&nbsp;&nbsp;${(review.user == document.getElementById('user').innerText ? `<button class="btn" style="padding: 1px 7px;font-size: 11px;line-height: 1.5;border-radius: 17px; color: #fff; background-color: rgb(202, 51, 47); border-color: #d43f3a;" time="${review.time}" onclick="deleteReview(this)">remove</button>` : "")}</span>
+
+									 </div>
+									 <div class="panel-body">
+										${review.text}
+									 </div>
+								  </div>
+							   </div>
+							</div>`
+			}
+
+
+
+			if (fullHTML != document.getElementById('reviewsSection').innerHTML) {
+				document.getElementById('reviewsSection').innerHTML = fullHTML;
+			}
+		}
+
+	});
+	ajax.open("GET", "/getReviews-" + {{ restaurant.ID }});
+	ajax.send();
+
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByY-2h6mdXG9JDmwt34MDz5PZiqYjnOfc&callback=initMap" async defer></script>
+
+{% endblock %}

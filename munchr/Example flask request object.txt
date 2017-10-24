@@ -1,0 +1,93 @@
+accept_charsets: 
+accept_encodings: sdch,gzip,deflate
+accept_languages: en-AU,en;q=0.8,pl;q=0.6
+accept_mimetypes: text/html,image/webp,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+access_route: ImmutableList(['127.0.0.1'])
+application: <bound method BaseRequest.application of <class 'flask.wrappers.Request'>>
+args: ImmutableMultiDict([])
+authorization: None
+base_url: http://0.0.0.0:5000/nearby/
+blueprint: None
+cache_control: no-cache
+charset: utf-8
+close: <bound method BaseRequest.close of <Request 'http://0.0.0.0:5000/nearby/' [GET]>>
+content_encoding: None
+content_length: None
+content_md5: None
+content_type: 
+cookies: {}
+data: b''
+date: None
+dict_storage_class: <class 'werkzeug.datastructures.ImmutableTypeConversionDict'>
+disable_data_descriptor: False
+encoding_errors: replace
+endpoint: nearby
+environ: {'HTTP_UPGRADE_INSECURE_REQUESTS': '1', 'HTTP_PRAGMA': 'no-cache', 'CONTENT_TYPE': '', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate, sdch', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'HTTP_CONNECTION': 'keep-alive', 'wsgi.input': <_io.BufferedReader name=6>, 'wsgi.url_scheme': 'http', 'wsgi.multiprocess': False, 'REMOTE_ADDR': '127.0.0.1', 'HTTP_USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36', 'HTTP_DNT': '1', 'SERVER_PORT': '5000', 'SERVER_SOFTWARE': 'Werkzeug/0.11.11', 'SERVER_PROTOCOL': 'HTTP/1.1', 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'REQUEST_METHOD': 'GET', 'HTTP_HOST': '0.0.0.0:5000', 'wsgi.version': (1, 0), 'HTTP_ACCEPT_LANGUAGE': 'en-AU,en;q=0.8,pl;q=0.6', 'CONTENT_LENGTH': '', 'QUERY_STRING': '', 'wsgi.multithread': False, 'wsgi.run_once': False, 'PATH_INFO': '/nearby/', 'SCRIPT_NAME': '', 'werkzeug.server.shutdown': <function WSGIRequestHandler.make_environ.<locals>.shutdown_server at 0x103a28d90>, 'REMOTE_PORT': 62419, 'HTTP_CACHE_CONTROL': 'no-cache', 'SERVER_NAME': '0.0.0.0', 'werkzeug.request': <Request 'http://0.0.0.0:5000/nearby/' [GET]>}
+files: ImmutableMultiDict([])
+form: ImmutableMultiDict([])
+form_data_parser_class: <class 'werkzeug.formparser.FormDataParser'>
+from_values: <bound method BaseRequest.from_values of <class 'flask.wrappers.Request'>>
+full_path: /nearby/?
+get_data: <bound method BaseRequest.get_data of <Request 'http://0.0.0.0:5000/nearby/' [GET]>>
+get_json: <bound method Request.get_json of <Request 'http://0.0.0.0:5000/nearby/' [GET]>>
+headers: Upgrade-Insecure-Requests: 1
+Pragma: no-cache
+Content-Type: 
+Accept-Encoding: gzip, deflate, sdch
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+Dnt: 1
+Host: 0.0.0.0:5000
+Accept-Language: en-AU,en;q=0.8,pl;q=0.6
+Content-Length: 
+Cache-Control: no-cache
+
+
+host: 0.0.0.0:5000
+host_url: http://0.0.0.0:5000/
+if_match: 
+if_modified_since: None
+if_none_match: 
+if_range: 
+if_unmodified_since: None
+input_stream: <_io.BufferedReader name=6>
+is_json: False
+is_multiprocess: False
+is_multithread: False
+is_run_once: False
+is_secure: False
+is_xhr: False
+json: None
+list_storage_class: <class 'werkzeug.datastructures.ImmutableList'>
+make_form_data_parser: <bound method BaseRequest.make_form_data_parser of <Request 'http://0.0.0.0:5000/nearby/' [GET]>>
+max_content_length: None
+max_form_memory_size: None
+max_forwards: None
+method: GET
+mimetype: 
+mimetype_params: {}
+module: None
+on_json_loading_failed: <bound method Request.on_json_loading_failed of <Request 'http://0.0.0.0:5000/nearby/' [GET]>>
+parameter_storage_class: <class 'werkzeug.datastructures.ImmutableMultiDict'>
+path: /nearby/
+pragma: no-cache
+query_string: b''
+range: None
+referrer: None
+remote_addr: 127.0.0.1
+remote_user: None
+routing_exception: None
+scheme: http
+script_root: 
+shallow: False
+stream: <_io.BytesIO object at 0x101d60990>
+trusted_hosts: None
+url: http://0.0.0.0:5000/nearby/
+url_charset: utf-8
+url_root: http://0.0.0.0:5000/
+url_rule: /nearby/
+user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+values: CombinedMultiDict([ImmutableMultiDict([]), ImmutableMultiDict([])])
+view_args: {}
+want_form_data_parsed: False

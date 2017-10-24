@@ -1,0 +1,40 @@
+body {
+  background-color: #ecf0f1;
+}
+
+.login-screen .title {
+  font-size: 100px;
+}
+.login-screen .login-buttons {
+  margin-top: 100px;
+}
+.login-screen .login-buttons .btn {
+  margin-top: 10px;
+}
+.login-screen .login-buttons .btn:hover {
+  margin-top: 11px;
+}
+.login-screen .login-buttons .google-login {
+  background-color: #2ecc71;
+  border-color: #27ae60;
+}
+.login-screen .login-buttons .skip-login {
+  background-color: #e74c3c;
+  border-color: #c0392b;
+}
+
+.list-group .list-group-item-heading {
+  margin-bottom: 0;
+}
+.list-group .list-group-item {
+  padding: 12px;
+}
+
+.categories h2 {
+  margin: 0;
+  font-size: small;
+  display: inline-block;
+}
+.categories .checkbox {
+  display: inline-block;
+}

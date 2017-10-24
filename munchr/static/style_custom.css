@@ -1,0 +1,44 @@
+.home_body {
+	background-color: rgb(231, 231, 231);
+	/*	background-image: url(/static/images/background.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;*/
+}
+
+.profile-head .restaurant-header {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+    -webkit-filter: blur(7px) brightness(50%);
+    -moz-filter: blur(7px) brightness(65%);
+    -o-filter: blur(7px) brightness(65%);
+    -ms-filter: blur(7px) brightness(65%);
+    filter: blur(7px) brightness(65%);
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    z-index:0;
+    margin: -28px 0 0 -18px;
+
+}
+
+.food-thumb {
+	max-width: 120px;
+	border-radius: 3px;
+	border: 1px solid grey;
+}
+
+.panel {
+	position: relative;
+	background: white;
+}
+
+.panel > .panel-heading {
+	background: transparent;
+	border: none;
+	margin-top: 10px;
+	color: #455A64;
+}

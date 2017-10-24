@@ -1,0 +1,50 @@
+{% extends "parent-all.html" %}
+{% block content %}
+<style type="text/css">
+	/* Home photos gallery */
+	.thumbnail img {
+		width: 250px;
+		height: 225px;
+	}
+</style>
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<hgroup class="col-lg-12">
+				<h1>Search Results</h1>
+				<h2 class="lead"><strong class="text-danger">{{ count }}</strong> results for <strong class="text-danger">{{ query }}</strong>, ordered by ratings</h2>
+			</hgroup>
+		</div>
+
+		{% if restaurants %}
+		<div class="row">
+			<h3 style="margin-left: 15px;"> Restaurants </h3>
+			{% for restaurant in restaurants %}
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="{{ url_for('restaurantDetails', restaurantID = restaurant.ID) }}">
+					<img class="img-responsive" src="{{ restaurant.imageURL or 'http://placehold.it/400x300' }}" alt="">
+					<h6 style="text-align: center">{{ restaurant.name }}</h6>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+
+		{% if albums %}
+		<div class="row">
+			<h3 style="margin-left: 15px;"> Food </h3>
+			{% for album in albums %}
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<a class="thumbnail" href="{{ url_for('showRestaurantMenu', restaurantID = album.restaurant, albumID = album.id) }}">
+					<img class="img-responsive" src="{% if album.images %}{{album.images[0].imageURL}}{% else %}http://placehold.it/150x150{% endif %}" alt="">
+					<h6 style="text-align: center">{{ album.name }}</h6>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}

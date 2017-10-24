@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munchr</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/munchr-old/app.css">
+
+</head>
+<body ng-app="FoodLook" ng-controller="MainController as mainCtrl">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-show="page == 'suggestions' || page == 'categories' || page == 'bookmarks' || page == 'foodcard'">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Munchr</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav" ng-show="page == 'suggestions' || page == 'categories' || page == 'bookmarks' || page == 'foodcard'">
+          <li><a href="#" ng-click="page = 'login'" >Logout</a></li>
+          <li><a href="#" ng-click="page = 'settings'">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 login-screen" ng-show="page == 'login'">
+        <div class="alert alert-dismissible alert-danger hidden-xs">
+          <p class="text-center">Make sure to use mobile view for this application</p>
+        </div>
+        <h1 class="text-center title">Munchr</h1>
+        <div class="login-buttons">
+          <a href="#" class="btn btn-primary btn-lg btn-block google-login" ng-click="page = 'google'">Login With Google</a>
+          <a href="#" class="btn btn-primary btn-lg btn-block facebook-login" ng-click="page = 'facebook'">Login With Facebook</a>
+          <a href="#" class="btn btn-primary btn-lg btn-block skip-login" ng-click="page = 'skip'">Skip for Now</a>
+        </div>
+      </div>
+
+      <div class="col-xs-12" ng-show="page == 'google'">
+        <a href="#" class="btn btn-primary btn-lg btn-block google-login" ng-click="page = 'categories'">Authenticate With Google</a>
+      </div>
+      <div class="col-xs-12" ng-show="page == 'facebook'">
+        <a href="#" class="btn btn-primary btn-lg btn-block facebook-login" ng-click="page = 'categories'">Authenticate With Facebook</a>
+      </div>
+      <div class="col-xs-12" ng-show="page == 'skip'">
+        <a href="#" class="btn btn-primary btn-lg btn-block skip-login" ng-click="page = 'categories'">Skip for Now</a>
+      </div>
+
+      <div class="col-xs-12" ng-show="page == 'categories'">
+        <h2 class="text-center">What food do you like?</h2>
+        <div class="pre-scrollable list-group" style="overflow:scroll; height:400px;">
+
+          <h6 class="list-group-item-text">This is a heading.</h6>
+
+          <a href="#" ng-click="categories[0] = true" ng-show="!categories[0]" class="list-group-item">
+            <h6 class="list-group-item-heading">Halal Snack Packs</h6>
+          </a>
+          <a href="#" ng-click="categories[0] = false" ng-show="categories[0]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Halal Snack Packs</h6>
+          </a>
+
+          <a href="#" ng-click="categories[1] = true" ng-show="!categories[1]" class="list-group-item">
+            <h6 class="list-group-item-heading">Burgers</h6>
+          </a>
+          <a href="#" ng-click="categories[1] = false" ng-show="categories[1]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Burgers</h6>
+          </a>
+
+          <h6 class="list-group-item-text" style="font-weight: bold;">Cuisines</h6>
+
+          <a href="#" ng-click="categories[2] = true" ng-show="!categories[2]" class="list-group-item">
+            <h6 class="list-group-item-heading">Thai</h6>
+          </a>
+          <a href="#" ng-click="categories[2] = false" ng-show="categories[2]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Thai</h6>
+          </a>
+
+          <a href="#" ng-click="categories[3] = true" ng-show="!categories[3]" class="list-group-item">
+            <h6 class="list-group-item-heading">Italian</h6>
+          </a>
+          <a href="#" ng-click="categories[3] = false" ng-show="categories[3]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Italian</h6>
+          </a>
+
+          <a href="#" ng-click="categories[4] = true" ng-show="!categories[4]" class="list-group-item">
+            <h6 class="list-group-item-heading">Indian</h6>
+          </a>
+          <a href="#" ng-click="categories[4] = false" ng-show="categories[4]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Indian</h6>
+          </a>
+
+          <a href="#" ng-click="categories[5] = true" ng-show="!categories[5]" class="list-group-item">
+            <h6 class="list-group-item-heading">Cafes</h6>
+          </a>
+          <a href="#" ng-click="categories[5] = false" ng-show="categories[5]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Cafes</h6>
+          </a>
+
+          <a href="#" ng-click="categories[6] = true" ng-show="!categories[6]" class="list-group-item">
+            <h6 class="list-group-item-heading">Fast Food</h6>
+          </a>
+          <a href="#" ng-click="categories[6] = false" ng-show="categories[6]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Fast Food</h6>
+          </a>
+
+          <a href="#" ng-click="categories[7] = true" ng-show="!categories[7]" class="list-group-item">
+            <h6 class="list-group-item-heading">Fine dining</h6>
+          </a>
+          <a href="#" ng-click="categories[7] = false" ng-show="categories[7]" class="list-group-item active">
+            <h6 class="list-group-item-heading">Fine dining</h6>
+          </a>
+
+        </div>
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'suggestions'">Continue</a>
+      </div>
+
+      <div class="col-xs-12" ng-show="page == 'suggestions'">
+        <div class="panel" ng-show="suggestion == 'hsp-1'">
+          <div class="panel-body" ng-click="page = 'food-card'; foodCard = 'hsp-1'">
+            <img src="/static/munchr-old/images/halal1.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Halal Snack Pack 1</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'hsp-2'">Dislike</a>
+                <a href="#" class="btn btn-default" ng-click="suggestion = 'hsp-2'; bookmarks[0] = false">Save</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'hsp-2'">Like</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" ng-show="suggestion == 'hsp-2'">
+          <div class="panel-body" ng-click="page = 'food-card'; foodCard = 'hsp-2'">
+          <img src="/static/munchr-old/images/halal2.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Halal Snack Pack 2</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'burger-1'">Dislike</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'burger-1'; bookmarks[1] = false">Save</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'burger-1'">Like</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" ng-show="suggestion == 'burger-1'">
+          <div class="panel-body" ng-click="page = 'food-card'; foodCard = 'burger-1'">
+          <img src="/static/munchr-old/images/burger1.png" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Burger 1</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'burger-2'">Dislike</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'burger-2'; bookmarks[2] = false">Save</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'burger-2'">Like</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" ng-show="suggestion == 'burger-2'">
+          <div class="panel-body" ng-click="page = 'food-card'; foodCard = 'burger-2'">
+          <img src="/static/munchr-old/images/burger2.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Burger 2</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'thai-1'">Dislike</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'thai-1'; bookmarks[3] = false">Save</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'thai-1'">Like</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" ng-show="suggestion == 'thai-1'">
+          <div class="panel-body" ng-click="page = 'food-card'; foodCard = 'thai-1'">
+          <img src="/static/munchr-old/images/thai1.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Thai 1</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'thai-2'">Dislike</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'thai-2'; bookmarks[4] = false">Save</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'thai-2'">Like</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" ng-show="suggestion == 'thai-2'">
+          <div class="panel-body" ng-click="page = 'food-card'; foodCard = 'thai-2'">
+          <img src="/static/munchr-old/images/thai2.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Thai 2</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'out-of-cards'">Dislike</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'out-of-cards'; bookmarks[5] = false">Save</a>
+              <a href="#" class="btn btn-default" ng-click="suggestion = 'out-of-cards'">Like</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel" ng-show="suggestion == 'out-of-cards'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/harold.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Out of Cards</h4>
+            <div class="btn-group btn-group-justified">
+              <a href="#" class="btn btn-default" ng-click="page = 'bookmarks'">Bookmarks</a>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'bookmarks'">Bookmarks</a>
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'categories'">Categories</a>
+      </div>
+
+      <div class="col-xs-12" ng-show="page == 'food-card'">
+
+        <div class="panel" ng-show="foodCard == 'hsp-1'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/halal1.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Halal Snack Pack 1</h4>
+            <p>Enter food card content here</p>
+            <ul>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci excepturi, similique obcaecati ullam explicabo enim placeat voluptatum sint autem aliquam eligendi? Dolores eaque, voluptatem nam officia. Ut voluptatem natus amet.</p>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='order'" ng-click="orderState='options'">Order</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='options'" ng-click="orderState='deliver'">Delivery</a>
+            <a href="https://maps.google.com/"  ng-show="orderState=='options'" class="btn btn-primary btn-lg btn-block">Directions</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Deliveroo</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Uber Eats</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 3</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 4</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState!='order'" ng-click="orderState='order'">Cancel</a>
+          </div>
+        </div>
+
+        <div class="panel" ng-show="foodCard == 'hsp-2'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/halal2.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Halal Snack Pack 2</h4>
+            <p>Enter food card content here</p>
+            <ul>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci excepturi, similique obcaecati ullam explicabo enim placeat voluptatum sint autem aliquam eligendi? Dolores eaque, voluptatem nam officia. Ut voluptatem natus amet.</p>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='order'" ng-click="orderState='options'">Order</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='options'" ng-click="orderState='deliver'">Delivery</a>
+            <a href="https://maps.google.com/"  ng-show="orderState=='options'" class="btn btn-primary btn-lg btn-block">Directions</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Deliveroo</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Uber Eats</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 3</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 4</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState!='order'" ng-click="orderState='order'">Cancel</a>
+          </div>
+        </div>
+
+        <div class="panel" ng-show="foodCard == 'burger-1'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/burger1.png" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Burger 1</h4>
+            <p>Enter food card content here</p>
+            <ul>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci excepturi, similique obcaecati ullam explicabo enim placeat voluptatum sint autem aliquam eligendi? Dolores eaque, voluptatem nam officia. Ut voluptatem natus amet.</p>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='order'" ng-click="orderState='options'">Order</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='options'" ng-click="orderState='deliver'">Delivery</a>
+            <a href="https://maps.google.com/"  ng-show="orderState=='options'" class="btn btn-primary btn-lg btn-block">Directions</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Deliveroo</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Uber Eats</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 3</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 4</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState!='order'" ng-click="orderState='order'">Cancel</a>
+          </div>
+        </div>
+
+        <div class="panel" ng-show="foodCard == 'burger-2'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/burger2.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Burger 2</h4>
+            <p>Enter food card content here</p>
+            <ul>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci excepturi, similique obcaecati ullam explicabo enim placeat voluptatum sint autem aliquam eligendi? Dolores eaque, voluptatem nam officia. Ut voluptatem natus amet.</p>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='order'" ng-click="orderState='options'">Order</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='options'" ng-click="orderState='deliver'">Delivery</a>
+            <a href="https://maps.google.com/"  ng-show="orderState=='options'" class="btn btn-primary btn-lg btn-block">Directions</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Deliveroo</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Uber Eats</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 3</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 4</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState!='order'" ng-click="orderState='order'">Cancel</a>
+          </div>
+        </div>
+
+        <div class="panel" ng-show="foodCard == 'thai-1'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/thai1.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Thai 1</h4>
+            <p>Enter food card content here</p>
+            <ul>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci excepturi, similique obcaecati ullam explicabo enim placeat voluptatum sint autem aliquam eligendi? Dolores eaque, voluptatem nam officia. Ut voluptatem natus amet.</p>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='order'" ng-click="orderState='options'">Order</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='options'" ng-click="orderState='deliver'">Delivery</a>
+            <a href="https://maps.google.com/"  ng-show="orderState=='options'" class="btn btn-primary btn-lg btn-block">Directions</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Deliveroo</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Uber Eats</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 3</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 4</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState!='order'" ng-click="orderState='order'">Cancel</a>
+          </div>
+        </div>
+
+        <div class="panel" ng-show="foodCard == 'thai-2'">
+          <div class="panel-body">
+            <img src="/static/munchr-old/images/thai2.jpg" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h4 class="text-center">Thai 2</h4>
+            <p>Enter food card content here</p>
+            <ul>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+              <li>Dot point</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci excepturi, similique obcaecati ullam explicabo enim placeat voluptatum sint autem aliquam eligendi? Dolores eaque, voluptatem nam officia. Ut voluptatem natus amet.</p>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='order'" ng-click="orderState='options'">Order</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState=='options'" ng-click="orderState='deliver'">Delivery</a>
+            <a href="https://maps.google.com/"  ng-show="orderState=='options'" class="btn btn-primary btn-lg btn-block">Directions</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Deliveroo</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Uber Eats</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 3</a>
+            <a href="https://deliveroo.com.au/" ng-show="orderState=='deliver'" class="btn btn-primary btn-lg btn-block">Delivery option 4</a>
+            <a class="btn btn-primary btn-lg btn-block" ng-show="orderState!='order'" ng-click="orderState='order'">Cancel</a>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'suggestions'">Suggestions</a>
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'bookmarks'">Bookmarks</a>
+      </div>
+
+      <div class="col-xs-12" ng-show="page == 'bookmarks'">
+        <h1 class="text-center">Bookmarks page</h1>
+        <div class="list-group">
+          <a href="#" ng-show="!bookmarks[0]" ng-click="page = 'food-card'; foodCard = 'hsp-1" class="list-group-item">
+            <h4 class="list-group-item-heading">HSP 1<button class="close" ng-click="bookmarks[0] = true">&times;</button></h4>
+          </a>
+
+          <a href="#" ng-show="!bookmarks[1]" ng-click="page = 'food-card'; foodCard = 'hsp-2" class="list-group-item">
+            <h4 class="list-group-item-heading">HSP 2<button class="close" ng-click="bookmarks[1] = true">&times;</button></h4>
+          </a>
+
+          <a href="#" ng-show="!bookmarks[2]" ng-click="page = 'food-card'; foodCard = 'burger-1" class="list-group-item">
+            <h4 class="list-group-item-heading">Burger 1 <button class="close" ng-click="bookmarks[2] = true">&times;</button></h4>
+          </a>
+
+          <a href="#" ng-show="!bookmarks[3]" ng-click="page = 'food-card'; foodCard = 'burger-2" class="list-group-item">
+            <h4 class="list-group-item-heading">Burger 2<button class="close" ng-click="bookmarks[3] = true">&times;</button></h4>
+          </a>
+
+          <a href="#" ng-show="!bookmarks[4]" ng-click="page = 'food-card'; foodCard = 'thai-1" class="list-group-item">
+            <h4 class="list-group-item-heading">Thai 1<button class="close" ng-click="bookmarks[4] = true">&times;</button></h4>
+          </a>
+
+          <a href="#" ng-show="!bookmarks[5]" ng-click="page = 'food-card'; foodCard = 'thai-2" class="list-group-item">
+            <h4 class="list-group-item-heading">Thai 2<button class="close" ng-click="bookmarks[5] = true">&times;</button></h4>
+          </a>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'suggestions'">Suggestions</a>
+      </div>
+      <div class="col-xs-12" ng-show="page == 'settings'">
+        <h1 class="text-center">Settings page</h1>
+        <a href="#" class="btn btn-primary btn-lg btn-block" ng-click="page = 'suggestions'">Suggestions</a>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+  <script src="/static/munchr-old/app.js"></script>
+</body>
+</html>

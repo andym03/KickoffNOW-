@@ -1,0 +1,260 @@
+{% extends "parent-all.html" %}
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row" style="margin-top: 15em; text-align: center;">
+
+		<div class="col-md-6 col-md-offset-3">
+
+
+			<div class="panel" style="padding: 20px">
+				<div class="panel-heading">
+					<h4>ADD a new food</h4>
+
+				</div>
+				<form action="/add-food/" method="post" onsubmit="return checkForm();" enctype="multipart/form-data">
+					<div class="input-group">
+					  <span class="input-group-addon">Restaurant:</span>
+					  <input type="text" autofocus autocomplete="off" name="restaurant" pattern=".+" class="form-control" id="restaurant" value="{{ name }}" placeholder="Enter restaurant name" required>
+					</div>
+					<p class="help-block">Select or add the restaurant the food is available from.</p>
+					<div id="restaurantsSearchList" class="list-group col-lg-offset-2 text-left"></div>
+					<div class="input-group">
+					  <span class="input-group-addon">Food Name:</span>
+					  <input type="text" autocomplete="off" name="name" pattern="[A-Za-z '-]+" class="form-control" id="name" placeholder="Food Name" required>
+					</div>
+					<p class="help-block">Enter the name of the food as it appears on the restaurant menu.</p>
+					<div class="input-group">
+					  <span class="input-group-addon">Category:</span>
+					  <input type="text" autocomplete="off" name="categories" autocomplete="off" pattern="[A-Za-z '-]+" class="form-control" id="categories" placeholder="Type to search" required>
+					</div>
+					<p class="help-block">Select/add category that best describes the item you are adding.</p>
+					<div id="categoriesSearchList" class="list-group col-lg-offset-2 text-left"></div>
+					<div class="input-group">
+					  <span class="input-group-addon">Images:</span>
+					  <input type="text" autocomplete="off" name="imageURL" pattern=".+" class="form-control" id="coverImage" placeholder="Enter an image URL" required>
+					</div>
+					<p class="help-block">Enter the URL of an image for the item.</p>
+					<p>OR</p>
+					<div style="display: flex; justify-content: center;">
+						<input type=file name=file id="fileInput" onchange="handleFiles(this)">
+						<script type="text/javascript">
+							function handleFiles(fileElement) {
+								console.log(`onchange event fired. files = ${fileElement.files}`);
+								if (fileElement.files.length > 0) {
+									document.getElementById("coverImage").disabled = true;
+									document.getElementById("coverImage").value = "";
+									fileElement.style = "background: rgb(151, 255, 159); border: 4px solid rgb(151, 255, 159); border-radius: 7px;";
+								}
+							}
+						</script>
+					</div>
+					<div class="form-group">
+						<button type="submit" id="addBtn" class="btn btn-default">
+							Add food
+						</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/fuse/2.6.2/fuse.min.js"></script>
+
+<script type="text/javascript" delay>
+
+var options = {
+	shouldSort: true,
+	threshold: 0.3,
+	distance: 100,
+	minMatchCharLength: 1,
+	keys: []
+};
+
+var searches = [
+	{
+		"list" : {{ restaurants|safe }},
+		"searchBox" : document.querySelector("#restaurant"),
+		"resultsElem" : document.querySelector("#restaurantsSearchList")
+	},
+	{
+		"list" : {{ categories|safe }},
+		"searchBox" : document.querySelector("#categories"),
+		"resultsElem" : document.querySelector("#categoriesSearchList")
+	}
+]
+
+function makeWarning(elementID) {
+	document.getElementById(elementID).style.background = "rgba(255, 0, 0, 0.37)";
+	document.getElementById(elementID).addEventListener("input", function(e) {  // Clear red background on input
+		e.target.style.background = "";
+	});
+	document.getElementById(elementID).focus();
+	document.getElementById(elementID).select();
+}
+
+function checkForm() {
+	// Check fields filled correctly
+	if (document.getElementById("restaurant").searchList.indexOf(document.getElementById("restaurant").value) == -1) {
+		makeWarning("restaurant");
+		return false;
+	}
+
+	if (document.getElementById("name").value == "") {
+		makeWarning("name");
+		return false;
+	}
+	if (document.getElementById("categories").value == "") {
+		makeWarning("categories");
+		return false;
+	}
+
+	if (document.getElementById("coverImage").value == "" && document.getElementById("fileInput").files.length == 0) {
+		makeWarning("coverImage");
+		return false;
+	}
+
+	document.querySelector("form").submit();
+
+}
+
+for (var search of searches) {
+	console.log(search);
+	search.searchBox.fuse = new Fuse(search.list, options);
+	search.searchBox.searchResultsElem = search.resultsElem;
+	search.searchBox.searchList = search.list;
+	search.searchBox.addEventListener("keydown", fuseSearchKeyDown);
+	search.searchBox.nResults = 0;
+}
+
+function fuseSearchKeyDown(e) {
+
+	if (e.keyCode == 38) {  // UP (try go to last)
+		if (e.target.searchResultsElem.lastElementChild != null) {
+			e.target.searchResultsElem.lastElementChild.focus();
+		}
+	} else if (e.keyCode == 40) {  // DOWN (try go to first)
+		if (e.target.searchResultsElem.firstElementChild != null) {
+			e.target.searchResultsElem.firstElementChild.focus();
+		}
+	} else if (e.keyCode == 13) {  // Enter pressed when no results (user wants to add a new category)
+		e.preventDefault();
+		if (e.target.value != "") {
+			e.target.searchResultsElem.innerHTML = "";
+			focusNextField();
+		}
+	} else {
+		// Attach event listener for when input recieved to update results
+		// input listener removed as soon as performSearch is finished.
+
+		// e.target.addEventListener("input", performSearch)
+		e.target.oninput = performSearch;
+	}
+
+}
+
+function performSearch(e) {
+	var results = e.target.fuse.search(e.target.value);
+
+	e.target.searchResultsElem.innerHTML = "";
+	if (e.target.value != "") {  // Search field not empty
+		if (results.length) {
+			// Fill results div with results
+			for (var i = 0; i < results.length; i++) {
+				e.target.searchResultsElem.innerHTML += `<a href="#" id="${e.target.searchList[results[i]]}" class="list-group-item">
+				<h4 class="list-group-item-heading" style="pointer-events: none">${e.target.searchList[results[i]]}</h4>
+				</a>`
+			}
+
+			// Add the option to add the users search term as a new entry only if it is not the exact same as something
+			// already in the list of results.
+			if (!(e.target.searchList.indexOf(e.target.value) != -1) && e.target.id != "restaurant") {
+				e.target.searchResultsElem.innerHTML += `<a href="#" id="${e.target.value}" class="list-group-item text-center" >
+				<h4 class="list-group-item-heading" style="pointer-events: none">Add <strong><i>${e.target.value}</i></strong> as new category</h4>
+				</a>`
+			}
+
+		} else if (e.target.id != "restaurant") {  // User entered something, but we have no matches. Prompt to add as new entry
+			e.target.searchResultsElem.innerHTML = `<a href="#" id="${e.target.value}" class="list-group-item text-center" >
+			<h4 class="list-group-item-heading" style="pointer-events: none">Add <strong><i>${e.target.value}</i></strong> as new category</h4>
+			</a>`
+		}
+	}  // Else search field now contains no text - leave results innerHTML empty
+
+	// Add event listeners on every result for keyboard navigation and enter press.
+	for (var i = 0; i < e.target.searchResultsElem.children.length; i++) {
+		// Make sure we can refer back to the search box this
+		// element is actually a result for
+		e.target.searchResultsElem.children[i].associatedSearchBox = e.target;
+		e.target.searchResultsElem.children[i].addEventListener("keydown", resultKeyDown);
+		e.target.searchResultsElem.children[i].addEventListener("mouseenter", resultMouseEnter);
+		e.target.searchResultsElem.children[i].addEventListener("click", resultClicked);  // Also handles ENTER pressed
+	}
+
+	e.target.oninput = "";
+
+}
+
+function resultClicked(e) {
+	console.log("User clicked/pressed enter on " + e.target.id);
+
+	focusNextField();
+
+	e.target.associatedSearchBox.value = e.target.id;
+	e.target.associatedSearchBox.searchResultsElem.innerHTML = "";
+
+}
+
+function resultKeyDown(e) {
+	// Move to appropriate result if key is up or down key
+
+	if (e.keyCode == 38) {
+		if (e.target.previousSibling != null) {
+			e.target.previousSibling.focus();
+		} else {
+			e.target.parentElement.lastElementChild.focus();
+		}
+	} else if (e.keyCode == 40) {
+		if (e.target.nextSibling != null) {
+			e.target.nextSibling.focus();
+		} else {
+			e.target.parentElement.firstElementChild.focus();
+		}
+	} else if ((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 96 && e.keyCode < 123) || (e.keyCode >= 48 && e.keyCode <= 57)) {
+		// Was a character or something else entered - update results.
+		e.target.associatedSearchBox.focus();
+		performSearch();
+	} else if (e.keyCode == 32) {
+		e.preventDefault();
+		e.target.associatedSearchBox.value = e.target.associatedSearchBox.value + ' ';
+		e.target.associatedSearchBox.focus();
+		performSearch();
+	}
+}
+
+// Mose hovered over one of the search results
+function resultMouseEnter(e) {
+	if (!(document.activeElement == searches[0].searchBox || document.activeElement == searches[1].searchBox)) {
+		e.target.focus();  // Just steal focus from whatever was focused previously
+	}
+}
+
+// Focuses on the next unfilled field
+function focusNextField() {
+	// Default focus on add Btn incase all fields are now filled.
+	document.querySelector("#addBtn").focus();
+
+	for (var input of document.querySelectorAll("input[required]")) {
+		if (input.value === "" && input.name != "query") {
+			input.focus();
+			break;
+		}
+	}
+}
+
+</script>
+
+{% endblock %}

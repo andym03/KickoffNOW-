@@ -1,0 +1,1236 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"album",
+				"albumID"
+			],
+			[
+				"restaurant",
+				"restaurantID"
+			],
+			[
+				"restau",
+				"restaurantName"
+			],
+			[
+				"restauran",
+				"restaurantName"
+			],
+			[
+				"btn",
+				"btn-success"
+			],
+			[
+				"resa",
+				"restaurantID"
+			],
+			[
+				"restaura",
+				"restaurantID"
+			],
+			[
+				"col-md",
+				"col-md-8"
+			],
+			[
+				"alig",
+				"align-content"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"submit",
+				"submitOurReview"
+			],
+			[
+				"fo",
+				"form"
+			],
+			[
+				"search_",
+				"search_concept"
+			],
+			[
+				"drop",
+				"dropdown-menu"
+			],
+			[
+				"q7",
+				"q7_courses"
+			],
+			[
+				"enrolme",
+				"enrolmentList"
+			],
+			[
+				"program",
+				"program_enrolments"
+			],
+			[
+				"lo",
+				"Load"
+			],
+			[
+				"log",
+				"logout"
+			],
+			[
+				"get",
+				"getInfo"
+			],
+			[
+				"rest",
+				"restaurantName"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"resta",
+				"restaurant"
+			],
+			[
+				"im",
+				"imagePath"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"tuh",
+				"thumbnail"
+			],
+			[
+				"col",
+				"col-md-2"
+			],
+			[
+				"onC",
+				"onclick\tAttr"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"nav",
+				"navbar"
+			],
+			[
+				"i",
+				"if\tIf Condition"
+			],
+			[
+				"cu",
+				"cursor"
+			],
+			[
+				"db",
+				"dbFile"
+			],
+			[
+				"conn",
+				"connect"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"styl",
+				"font-style"
+			],
+			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"bca",
+				"background-color"
+			],
+			[
+				"home",
+				"home_body"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"ratio",
+				"ratio_data"
+			],
+			[
+				"num",
+				"numeric_conversion"
+			],
+			[
+				"min",
+				"min_max_serving"
+			],
+			[
+				"dean",
+				"dean_name"
+			],
+			[
+				"startin",
+				"starting"
+			],
+			[
+				"Q2_",
+				"Q2_people_table"
+			],
+			[
+				"S",
+				"SELECT"
+			],
+			[
+				"Q2",
+				"Q2_people_table"
+			],
+			[
+				"orguni",
+				"orgunit_key"
+			],
+			[
+				"dea",
+				"dean_name"
+			],
+			[
+				"org",
+				"orgunits"
+			],
+			[
+				"starting",
+				"starting_date"
+			],
+			[
+				"q2",
+				"Q2_affiliation_table"
+			],
+			[
+				"possible",
+				"possible_orgunit"
+			],
+			[
+				"facul",
+				"faculty_type"
+			],
+			[
+				"or",
+				"orgunit_key"
+			],
+			[
+				"facult",
+				"faculty_orgtype"
+			],
+			[
+				"fa",
+				"fa-facebook"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"add",
+				"address-bar"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"bol",
+				"bolder"
+			],
+			[
+				"mra",
+				"margin-top"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"STAT",
+				"STATIC_PATH"
+			],
+			[
+				"BAs",
+				"BASE_DIR"
+			],
+			[
+				"stat",
+				"status_f"
+			],
+			[
+				"debug",
+				"debug_db"
+			],
+			[
+				"show_",
+				"show_zid"
+			],
+			[
+				"check",
+				"check_friend"
+			],
+			[
+				"priva",
+				"privacy_setting"
+			],
+			[
+				"frie",
+				"friend"
+			],
+			[
+				"soh",
+				"show_zid"
+			],
+			[
+				"show",
+				"show_req"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"aut",
+				"author"
+			],
+			[
+				"fet",
+				"fetchone"
+			],
+			[
+				"zid",
+				"zid"
+			],
+			[
+				"redire",
+				"redirect_userpage"
+			],
+			[
+				"redi",
+				"check_redirect"
+			],
+			[
+				"to",
+				"to_user"
+			],
+			[
+				"email",
+				"email_fr_request"
+			],
+			[
+				"fr_z",
+				"fr_zid"
+			],
+			[
+				"reset",
+				"reset_pw"
+			],
+			[
+				"true",
+				"True"
+			],
+			[
+				"fetc",
+				"fetchone"
+			],
+			[
+				"su",
+				"success"
+			],
+			[
+				"zi",
+				"zid_recover"
+			],
+			[
+				"fir",
+				"friend"
+			],
+			[
+				"fetch",
+				"fetchall"
+			],
+			[
+				"F",
+				"False"
+			],
+			[
+				"key",
+				"key_count"
+			],
+			[
+				"new",
+				"new_zid"
+			],
+			[
+				"file",
+				"filename_split"
+			],
+			[
+				"rena",
+				"rename_path"
+			],
+			[
+				"rea",
+				"real_path"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"fli",
+				"filename"
+			],
+			[
+				"pic",
+				"pic_path"
+			],
+			[
+				"profile",
+				"profile_image"
+			],
+			[
+				"path",
+				"path_to_file"
+			],
+			[
+				"new_",
+				"new_image"
+			],
+			[
+				"pat",
+				"path_to_file"
+			],
+			[
+				"profil",
+				"profile_image"
+			],
+			[
+				"param",
+				"parameters"
+			],
+			[
+				"dele",
+				"delete_session"
+			],
+			[
+				"fr_",
+				"fr_zid"
+			],
+			[
+				"delete",
+				"delete_comment"
+			],
+			[
+				"set",
+				"set_del_deac"
+			],
+			[
+				"NO",
+				"None"
+			],
+			[
+				"reque",
+				"request"
+			],
+			[
+				"post",
+				"posts"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"bi",
+				"birthday"
+			],
+			[
+				"hom",
+				"home_suburb"
+			],
+			[
+				"up",
+				"update_user_info"
+			],
+			[
+				"cor",
+				"courses"
+			],
+			[
+				"gee",
+				"getvalue"
+			],
+			[
+				"prin",
+				"print"
+			],
+			[
+				"modi",
+				"modify_user"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "restaurant.html",
+			"settings":
+			{
+				"buffer_size": 12768,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Kayla/Desktop/todo.txt",
+			"settings":
+			{
+				"buffer_size": 317,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/app.py",
+			"settings":
+			{
+				"buffer_size": 11842,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/db.py",
+			"settings":
+			{
+				"buffer_size": 5554,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/style.css",
+			"settings":
+			{
+				"buffer_size": 6112,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/style_custom.css",
+			"settings":
+			{
+				"buffer_size": 937,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 123.0,
+		"last_filter": "install packa",
+		"selected_items":
+		[
+			[
+				"install packa",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Install Package Control"
+			],
+			[
+				"mat",
+				"Material Theme: Activate theme"
+			]
+		],
+		"width": 374.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates"
+	],
+	"file_history":
+	[
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates/searchResults.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates/home.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates/menu-page.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates/parent-all.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates/add-food.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/app.py",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/db.py",
+		"/Users/Kayla/Desktop/todo.txt",
+		"/Users/Kayla/Documents/KV/Projects/KhangThinh/khangthinh/khangthinh.sublime-workspace",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/backup/Munchr-SENG2011/templates/restaurant.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/backup/Munchr-SENG2011/static/style.css",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/backup/Munchr-SENG2011/static/style_custom.css",
+		"/Users/Kayla/Desktop/restaurant.txt",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/style_custom.css",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/restaurant_page.js",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3141/num.txt",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3141/input.txt",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3141/output.txt",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/models.py",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/.git/config",
+		"/Users/Kayla/Desktop/facebook.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/templates/home-desktop.html",
+		"/Users/Kayla/Desktop/Ass1/sof.tex",
+		"/Users/Kayla/Desktop/Ass1/sof.c",
+		"/private/var/folders/w8/z9b5739567gdct0r_gp84zl40000gn/T/b02592ba-aaa2-4758-8ab0-02dbbe67017d/tmp_amd/adams/export/adams/2/z5042659/COMP2111/Ass1/sof.tex",
+		"/Users/Kayla/Desktop/sof.c",
+		"/Users/Kayla/Desktop/sof.h",
+		"/Users/Kayla/Desktop/softest.c",
+		"/Users/Kayla/Documents/UNSW/S2 16/COMP2041/ass2/ver2/submission 2/matelook.cgi",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3311/proj1/proj1s1.sql",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/style.css",
+		"/Users/Kayla/Desktop/ass1.tex",
+		"/Users/Kayla/Desktop/ass1q23.txt",
+		"/Users/Kayla/Documents/UNSW/S2 16/COMP2041/ass2/ver2/submission 2/database.py",
+		"/Users/Kayla/Documents/UNSW/S2 16/COMP2041/ass2/ver2/submission 2/models.py",
+		"/Users/Kayla/Documents/UNSW/S2 16/SENG2021/seng2021project/movieapp/views.py",
+		"/Users/Kayla/Documents/UNSW/S2 16/SENG2021/seng2021project/movieapp/models.py",
+		"/Users/Kayla/Downloads/solution.sql",
+		"/Users/Kayla/Documents/UNSW/S2 16/SENG2021/seng2021project/templates/base.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3141/Ex01.hs",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3141/Exercises.hsproj/Ex02.hs",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/menu/templates/menu/base.html",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3311/proj1/proj1.sql",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/cafe/settings.py",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/menu/views.py",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/menu/models.py",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/menu/urls.py",
+		"/Users/Kayla/Documents/UNSW/S1 17/COMP3141/Art.hsproj/Art.hs",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/menu/templates/menu/home.html",
+		"/private/var/folders/w8/z9b5739567gdct0r_gp84zl40000gn/T/b02592ba-aaa2-4758-8ab0-02dbbe67017d/tmp_amd/adams/export/adams/2/z5042659/COMP3141/Art.hs",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/.gitignore",
+		"/Users/Kayla/Documents/KV/Projects/eCalendar/ecalendar/draft.txt",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/cafe/wsgi.py",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/cafe/urls.py",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/menu/tests.py",
+		"/Users/Kayla/Documents/KV/Projects/Cafe Website/kt/cafe/db.sqlite3",
+		"/Users/Kayla/Documents/KV/Projects/eCalendar/ecalendar/ninh binh",
+		"/Users/Kayla/Documents/UNSW/S1 17/SENG2011/exam_hint.txt",
+		"/Users/Kayla/Desktop/Chill/Podfile",
+		"/Users/Kayla/Desktop/Chill/Chill.xcodeproj/project.pbxproj",
+		"/Users/Kayla/Desktop/Chill/Pods/Target Support Files/Pods-Chill/Pods-Chill.release.xcconfig",
+		"/Users/Kayla/Desktop/Chill/Pods/Target Support Files/Pods-Chill/Pods-Chill.debug.xcconfig",
+		"/Users/Kayla/Desktop/Chill/.gitignore",
+		"/Users/Kayla/Documents/KV/Projects/eCalendar/ecalendar/Podfile",
+		"/Users/Kayla/Documents/KV/Projects/eCalendar/ecalendar/eCalendar.xcodeproj/project.pbxproj",
+		"/Users/Kayla/Desktop/parse.txt",
+		"/Users/Kayla/Documents/KV/tothink.txt",
+		"/Users/Kayla/Documents/KV/req.txt",
+		"/Users/Kayla/Documents/KV/code.txt",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/career.html",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/contact.html",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/static/css/style.css",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/static/css/style-ambiance.css",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/base.html",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/home.html",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/views.py",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/urls.py",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/full_menu.html",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/menu.html",
+		"/Users/Kayla/Desktop/note.txt",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/about.html",
+		"/Users/Kayla/Desktop/feature.txt",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/promotion.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/views.py",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/urls.py",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/static/css/style-default.css",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/.gitignore",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/static/js/pack.js",
+		"/Users/Kayla/Documents/KV/cafe_website/Cafe-Website/cafe/menu/templates/menu/base_nav.html",
+		"/Users/Kayla/Documents/KV/Swift/lesson01.swift",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/career.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/menu.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/about.html",
+		"/Users/Kayla/Documents/KV/Projects/Java/FirstJava.java",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/static/js/custom.js",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/static/css/style.css",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/contact.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/base_nav.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/home.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/menu/base.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/models.py",
+		"/Users/Kayla/Documents/KV/kt/cafe/cafe/settings.py",
+		"/Users/Kayla/Documents/Electronic Arts/The Sims 4/GameVersion.txt",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/admin.py",
+		"/Users/Kayla/Documents/UNSW/S2 16/COMP2041/ass2/ver2/submission/static/style.css",
+		"/Users/Kayla/Documents/UNSW/S2 16/COMP2041/ass2/ver2/submission/decorators.py",
+		"/Users/Kayla/Documents/KV/kt/cafe/cafe/urls.py",
+		"/Users/Kayla/Documents/KV/kt/cafe/menu/templates/home.html",
+		"/Users/Kayla/Documents/KV/kt/cafe/interface/models.py",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab5-C.asm",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab1-C.asm",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab2-A.asm",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab3-B.asm",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab4-B.asm",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab3-C.asm",
+		"/Users/Kayla/Documents/UNSW/COMP2121/All labs/lab1-B.asm",
+		"/Users/Kayla/Desktop/data.txt",
+		"/Users/Kayla/Desktop/q12.pl",
+		"/Users/Kayla/Desktop/q11.pl",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/todo.txt",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/sample.css",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/sample.html",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/models.py",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/static/style.css",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/static/script.js",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/decorators.py",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/test2.py",
+		"/Users/Kayla/Documents/UNSW/COMP2041/ass2/ver2/debug htaccess.txt"
+	],
+	"find":
+	{
+		"height": 122.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/Kayla/Desktop/Chill",
+			"/Users/Kayla/Documents/KV/Projects/eCalendar/ecalendar/eCalendar.xcodeproj"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\"></a>\n\t\t\t\t\t\t\t\t\t\t<h5 style=\"text-align: center;\">{{ album.name }}</h5>\n\t\t\t\t\t\t\t\t\t</div>",
+			"\t\t\t\t\t\t\t\t\t<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\"></a>\n\t\t\t\t\t\t\t\t\t\t<h5 style=\"text-align: center;\">{{ album.name }}</h5>\n\t\t\t\t\t\t\t\t\t</div>\n",
+			"thumbnail",
+			"<a class=\"thumbnail\"",
+			"<div class=\"col-md-3\">\n\t\t\t\t\t\t\t\t\t\t<a class=\"thumbnail\" href=\"#\"><img alt=\"\" src=\"http://placehold.it/150x150\"></a>\n\t\t\t\t\t\t\t\t\t\t<h5 style=\"text-align: center;\">{{ album.name }}</h5>\n\t\t\t\t\t\t\t\t\t</div>",
+			"loop.index",
+			" '",
+			"placehold",
+			"*/\n",
+			"sum",
+			"in",
+			"\t\t\t\t\t});",
+			"testAPI",
+			"edit",
+			"px",
+			"123",
+			";}",
+			"{\t",
+			";\t",
+			"{\n\n",
+			";\n",
+			"\n",
+			";",
+			"{",
+			";",
+			"close",
+			"facebook",
+			"q1",
+			"q2",
+			"ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES",
+			"perform",
+			"ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES",
+			"AlWAYS_EMBDED",
+			"ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES",
+			"END:VEVENT",
+			"loader",
+			"splash-logo",
+			".splash",
+			"splash",
+			"splash-logo",
+			"p {",
+			".content-wrap",
+			"content-wrap",
+			"content",
+			"content-wrap",
+			"footer",
+			"main",
+			"wrapper",
+			".wrapper",
+			"#wrapper",
+			"wrapper",
+			"#wrapper",
+			"#splash",
+			"loader",
+			"do_lcd_command",
+			"clear",
+			"newsfeed",
+			"Delete",
+			"Delete post",
+			"Only me",
+			"create_post",
+			"create_psot",
+			"create new post",
+			"updated on",
+			"create post",
+			"create",
+			"change audience",
+			"privacy setting",
+			"receive email",
+			"receive noti",
+			"edit bio text",
+			"friend",
+			"password1",
+			"update",
+			"session",
+			"change background",
+			"nav_bar",
+			"append",
+			"deactivate",
+			"Edit profile",
+			"Edit personal",
+			"Edit profile",
+			"noti_page",
+			"acc-setting",
+			"backgroun",
+			"--------------",
+			"View replies",
+			"<p>",
+			"this",
+			"$this",
+			"add_fr",
+			"req-cancel",
+			"req-acc",
+			"count(*)",
+			"Friend Reques",
+			"Friend",
+			"form-control",
+			"body",
+			">\n",
+			"inc_likes",
+			"\">\n",
+			"static/default_user.jpg",
+			"default",
+			"logo",
+			"bg-blur",
+			"main.cgi",
+			"static",
+			"user_page",
+			"user",
+			"print_friend",
+			"print_fr",
+			"get_friends",
+			"picture",
+			"img-thumbnail picture",
+			"img-thumbnail picture hidden-xs",
+			"img-thumbnail",
+			"img-thum",
+			"\t\t\t\t</",
+			"Add friend",
+			"made a post",
+			"made",
+			"tab_default_2",
+			"tab-default-2",
+			"tab-default",
+			"search-query",
+			"\\n",
+			"<br>",
+			"<rb>"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			";\n}\t",
+			"{\n\t",
+			"{\n",
+			";\n",
+			";",
+			"{",
+			";",
+			"",
+			";\n",
+			"{\n",
+			"",
+			";\n",
+			";\n\\t",
+			";\n",
+			"; \\n",
+			";\\n",
+			"Q1",
+			"Q2",
+			"END:VEVENT\\t",
+			"pw-recover",
+			"static/images/default_user.jpg",
+			"show_zid",
+			"newsfeed_page",
+			"</h1>",
+			"<h1>",
+			"cmt_id",
+			"post_id",
+			"}",
+			"{",
+			"}",
+			"{",
+			"{   ",
+			"   ",
+			"",
+			"\"",
+			"",
+			"not null",
+			"Sidebar Content",
+			"search-bar",
+			".search-bar",
+			"arr",
+			"expr"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"folders":
+	[
+		{
+			"path": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "restaurant.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3785,
+								3785
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1364.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/Kayla/Desktop/todo.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								146,
+								146
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7657,
+								7657
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3386.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/db.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5554,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								522
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5744,
+								5744
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4130.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/Kayla/Documents/UNSW/S1 17/SENG2011/Munchr-SENG2011/static/style_custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								937,
+								937
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 140.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 65.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 45.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Downloads/solution.sql"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 374.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

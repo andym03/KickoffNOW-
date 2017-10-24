@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="/static/images/KickOffNowLogo.png" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Munchr</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="stylesheet" type="text/css" href="/static/style_custom.css">
+
+	<!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Facebook SDK -->
+	<script>
+
+		var uid = "no"
+
+		function statusChangeCallback(response) {
+
+			if (response.status === 'connected') {
+			// Logged into your app and Facebook.
+				// testAPI();
+				console.log("Logged in");
+			} else {
+			// The person is not logged into your app or we are unable to tell.
+				document.getElementById('user').innerHTML = 'Login';
+				document.getElementById('logout').style.display = "none";
+
+			}
+		}
+
+		function checkLoginState() {
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+		}
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '1752462381750613',
+				cookie     : true,
+				xfbml      : true,  // parse social plugins on this page
+				version    : 'v2.8' // use graph api version 2.8
+			});
+
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+				if (response.status === 'connected') {
+					uid = response.authResponse.userID;
+					var str = '/' + uid;
+					console.log(str);
+					FB.api(str, function(response) {
+						console.log(response);
+						document.getElementById('user').innerHTML = response.name;
+						document.getElementById('user-only').style.display = "block";
+						document.getElementById('logout').style.display = "block";
+
+						startContinuousChecks();
+					});
+				} else {
+					startContinuousChecks();
+				}
+
+			});
+
+		};
+
+		function startContinuousChecks() {
+			// Checks constantly whether the user is logged in
+			var something = setInterval(continuousLoginCheck, 300);
+
+			var forms = document.querySelectorAll("form");
+
+			for (var i = 0; i < forms.length; i++) {
+
+				// Append input with users name to form if
+				if (forms[i].hasUsernameAttached == document.getElementById('user').innerText) {
+					// already has hidden username field.
+				} else {
+					addHidden(forms[i], 'username', document.getElementById('user').innerText);
+					forms[i].hasUsernameAttached = document.getElementById('user').innerText;
+				}
+			}
+
+
+			function addHidden(theForm, key, value) {
+				// Create a hidden input element, and append it to the form:
+				var input = document.createElement('input');
+				input.type = 'hidden';
+				input.name = key;'name-as-seen-at-the-server';
+				input.value = value;
+				theForm.appendChild(input);
+			}
+		}
+
+		// Load the SDK asynchronously
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		function testAPI() {
+			console.log('Welcome!  Fetching your information.... ');
+			FB.api('/me', function(response) {
+				console.log('Successful login for: ' + response.name);
+				document.getElementById('user').innerHTML = response.name;
+				document.getElementById('logout').style.display = "block";
+			});
+		}
+
+		function facebookLogin() {
+			console.log("Facebook login called.");
+			FB.login(function(response) {
+				// Person is now logged in
+				FB.getLoginStatus(function(response) {
+					if (response.status === 'connected') {
+					// the user is logged in and has authenticated your
+					// app, and response.authResponse supplies
+					// the user's ID, a valid access token, a signed
+					// request, and the time the access token
+					// and signed request each expire
+					// var uid = response.authResponse.userID;
+					// var accessToken = response.authResponse.accessToken;
+						FB.api('/me', function(response) {
+							console.log('Successful login for: ' + response.name + ' id: ' + response.id);
+							document.getElementById('user').innerHTML = response.name;
+							document.getElementById('user-only').style.display = "block";
+							document.getElementById('logout').style.display = "block";
+							uid = response.id;
+						});
+
+					} else {
+						uid = "no";
+					}
+					// else if (response.status === 'not_authorized') {
+					// 	// the user is logged in to Facebook,
+					// 	// but has not authenticated your app
+					// } else {
+					// 	// the user isn't logged in to Facebook.
+					// }
+				});
+			});
+		}
+
+		function facebookLogout() {
+			FB.logout(function(response) {
+				// Person is now logged out
+				document.getElementById('user').innerHTML = 'Login';
+				document.getElementById('logout').style.display = "none";
+				document.getElementById('user-only').style.display = "none";
+				uid = "no"
+				console.log("Logged out success");
+			});
+		}
+	</script>
+
+	<script type="text/javascript">
+		/* For search options */
+		$(document).ready(function(e){
+		    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+				e.preventDefault();
+				var param = $(this).attr("href").replace("#","");
+				var concept = $(this).text();
+				$('.search-panel span#search_concept').text(concept);
+				$('.input-group #search_param').val(param);
+			});
+		});
+
+	</script>
+
+	<script type="text/javascript">
+
+	// setTimeout(initialFBCheck, 2000);  // do first check after 3 seconds (enough time for login to happen properly?)
+
+	// Run login check function every 1 second to check if user is on a page
+	// they shouldnt be when not logged in.
+
+	function continuousLoginCheck() {
+
+		var restrictedPattern = /add.*/g;  // as in add-food, add-restaurant etc
+
+		if (restrictedPattern.test(window.location.pathname)) {
+			if (document.getElementById('user').innerText == "Login") {
+				document.getElementById('messageOverlay').classList.add('messageOverlayActive');
+			} else {
+				document.getElementById('messageOverlay').classList.remove('messageOverlayActive');
+			}
+
+			document.getElementById('navbarElem').style.filter = (document.getElementById('user').innerText != "Login" ? "" : "blur(5px)");
+			document.getElementsByClassName('container-fluid')[0].style.filter = (document.getElementById('user').innerText != "Login" ? "" : "blur(5px)");
+
+		}
+
+		var forms = document.querySelectorAll("form");
+		for (var i = 0; i < forms.length; i++) {
+
+			// Append input with users name to all forms
+			var hiddenFields = document.getElementsByName('username');
+			for (var hf = 0; hf < hiddenFields.length; hf++) {
+				hiddenFields[hf].value = document.getElementById('user').innerText;
+			}
+		}
+
+	}
+
+	</script>
+
+</head>
+
+<body class="home_body">
+	<nav class="navbar navbar-inverse" id="navbarElem">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- <a class="navbar-brand" style="color: #ECEFF1;" href="../desktop/">Munchr</a> -->
+			<a class="navbar-brand" href="../desktop/" style="padding: 7px 15px !important;">
+    			<span><img src="/static/images/KickOffNowLogo.png" width="100" height="30" class="d-inline-block align-top" alt=""></span>
+  			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar-collapse-3">
+			<ul class="nav navbar-nav mr-auto">
+				<li><a href="/nearbyFood/" style="color: #ECEFF1; z-index: 2;">Food near me</a></li>
+				<li><a href="/add-restaurant/" id="user-only" style="color: #ECEFF1; display: none; z-index: 2;">Add Restaurant</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="btn btn-default btn-outline btn-circle" onclick="facebookLogin();" style="z-index: 1;" id="user">Login</a></li>
+				<li><a class="btn btn-default btn-outline btn-circle" onclick="facebookLogout();" style="display: none; z-index: 1; background-color: #757575; border-color: #757575;" id="logout">Logout</a></li>
+				<li>
+					<a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+				</li>
+			</ul>
+			<div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+				<form class="navbar-form navbar-right" method="get" action="/search">
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" name="query" class="form-control" style="width: 300px;" placeholder="Search" required=""/>
+							<input type="hidden" name="search_param" value="restaurant" id="search_param">
+							<div class="input-group-btn search-panel">
+								<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="search_concept">Search by</span> <span class="caret"></span></button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#restaurant">Restaurant</a></li>
+									<li><a href="#categories">Categories</a></li>
+									<li><a href="#food">Food</a></li>
+									<li class="divider"></li>
+									<li><a href="#all">All</a></li>
+								</ul>
+								<button type="submit" class="btn btn-warning" style="margin-left: -5px;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+							</div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div><!-- /.navbar-collapse -->
+	</nav><!-- /.navbar -->
+
+	<div id="messageOverlay" class="messageOverlayInactive">
+		<div class="panel" style="padding: 40px;height: 160px;text-align: center;">
+			You are not logged into Facebook. Please login or return to the <a href="/">homepage</a>.<br><br>
+			<button type="button" class="btn btn-lg btn-success" onclick="facebookLogin();">Login</button>
+		</div>
+	</div>
+
+	{% block content %}
+	{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+/* Nav bar css */
+/*
+Code snippet by maridlcrmn for Bootsnipp.com
+Credits: http://bootsnipp.com/snippets/featured/toggle-navbar-with-slide-down-animation
+*/
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn {
+	position: relative;
+	z-index: 2;
+	padding: 4px 20px;
+	margin-top: 10px;
+	margin-right: 20px;
+	transition: transform 0.3s;
+}
+
+.navbar .navbar-collapse { position: relative; overflow: scroll; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; display: block; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+.review-profile-pic {
+    clip: rect(0px,80px,90px,0px);
+    width: 80px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.11);
+}
+.messageOverlayInactive {
+	position: fixed;
+    display: flex;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+	background-color: rgba(0,0,0,0.3);
+    will-change: opacity;
+    transition-property: opacity;
+    transition-duration: .25s;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.messageOverlayActive {
+    opacity: 1;
+    pointer-events: auto;
+    /* For if you want to have it hidden somewhere prior to display
+    it can fade in and move in from that position */
+    transform: none;
+    overflow: auto;
+}
+
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+	/*background-color: rgb(111, 84, 153);*/
+	background-color: rgb(209, 67, 54);
+	/*border-color: rgb(111, 84, 153);*/
+	border-color: rgb(209, 67, 54);
+	color: rgb(255, 255, 255);
+}
+
+.navbar.navbar-default .nav-collapse,
+.navbar.navbar-inverse .nav-collapse {
+	height: auto !important;
+	transition: transform 0.3s;
+	transform: translate(0px,-50px);
+}
+.navbar.navbar-default .nav-collapse.in,
+.navbar.navbar-inverse .nav-collapse.in {
+	transform: translate(0px,0px);
+}
+
+#reviewsContainerPanel {
+	padding: 20px 50px;
+}
+
+
+@media screen and (max-width: 767px) {
+	.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }
+
+	.navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+	.navbar .nav-collapse .navbar-form { margin: 0; }
+	.nav-collapse>li { float: none; }
+
+	.navbar.navbar-default .nav-collapse,
+	.navbar.navbar-inverse .nav-collapse {
+		transform: translate(-100%,0px);
+	}
+	.navbar.navbar-default .nav-collapse.in,
+	.navbar.navbar-inverse .nav-collapse.in {
+		transform: translate(0px,0px);
+	}
+
+	.navbar.navbar-default .nav-collapse.slide-down,
+	.navbar.navbar-inverse .nav-collapse.slide-down {
+		transform: translate(0px,-100%);
+	}
+	.navbar.navbar-default .nav-collapse.in.slide-down,
+	.navbar.navbar-inverse .nav-collapse.in.slide-down {
+		transform: translate(0px,0px);
+	}
+
+	#reviewsContainerPanel {
+		padding: 0;
+	}
+}
+
+
+/* Add restaurant page */
+.input-group {
+	margin-bottom: 15px;
+}
+
+/* Restaurant Details */
+/* Credits: http://bootsnipp.com/snippets/d5bpk */
+.profile-head {
+	width: 100%;
+	min-height: 250px;
+	background-color: rgb(130, 130, 130);
+	float: left;
+	padding: 15px 5px;
+	margin-bottom: 50px;
+
+}
+.profile-head img {
+	height:150px;
+	width:150px;
+	margin:0 auto;
+	border:5px solid #fff;
+	border-radius:5px;
+	position: relative;
+	overflow: hidden;
+	z-index: 10000;
+}
+.profile-head h5 {
+	width: 100%;
+	padding:5px 5px 0px 5px;
+	text-align:justify;
+	font-weight: bold;
+	color: #fff;
+	font-size: 25px;
+	text-transform:capitalize;
+	margin-bottom: 5px;
+}
+.profile-head a {
+	width: 100%;
+	text-align: justify;
+	padding:5px;
+	color: #fff;
+	font-size:17px;
+	text-transform:capitalize;
+}
+
+.profile-head ul {
+	list-style:none;
+	padding: 0;
+}
+
+.profile-head ul li {
+	color:#ffffff;
+	padding:5px;
+	font-weight: 400;
+	font-size: 15px;
+}
+.profile-head ul li:hover span {
+	color:rgb(0, 4, 51);
+}
+.profile-head ul li span {
+	color:#ffffff;
+	padding-right: 10px;
+}
+.profile-head ul li a {
+	color:#ffffff;
+}
+.profile-head h6 {
+	width: 100%;
+	text-align: center;
+	font-weight: 100;
+	color: #fff;
+	font-size: 15px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+@media all and (max-width:430px) {
+	.profile-head ul li {font-size: 12px !important;}
+}
+
+/* Restaurant Reviews Section */
+ .animated {
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
+}
+
+.stars {
+    font-size: 24px;
+    color: #d17581;
+}
+
+/*.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}*/
+
+
+/* Carousel for restaurant menu item */
+/* Ref: https://bootsnipp.com/snippets/featured/media-slider-carousel-bs3 */
+/* carousel */
+.media-carousel {
+	margin-bottom: 0;
+	padding: 0 40px 30px 40px;
+}
+/* Previous button  */
+.media-carousel .carousel-control.left {
+	left: -12px;
+	background-image: none;
+	background: none repeat scroll 0 0 #222222;
+	border: 4px solid #FFFFFF;
+	border-radius: 23px 23px 23px 23px;
+	height: 40px;
+	width : 40px;
+	margin-top: 50px;
+}
+/* Next button  */
+.media-carousel .carousel-control.right {
+	right: -12px !important;
+	background-image: none;
+	background: none repeat scroll 0 0 #222222;
+	border: 4px solid #FFFFFF;
+	border-radius: 23px 23px 23px 23px;
+	height: 40px;
+	width : 40px;
+	margin-top: 50px;
+}
+/* Changes the position of the indicators */
+.media-carousel .carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: 0px;
+	margin-right: -19px;
+}
+
+/* Changes the colour of the indicators */
+.media-carousel .carousel-indicators li {
+	background: #c0c0c0;
+}
+.media-carousel .carousel-indicators .active {
+	background: #333333;
+}
+.media-carousel img {
+	width: 200px;
+	height: 150px;
+}
+/* End carousel */

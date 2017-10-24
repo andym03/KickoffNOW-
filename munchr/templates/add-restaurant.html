@@ -1,0 +1,142 @@
+{% extends "parent-all.html" %}
+{% block content %}
+
+<script type="text/javascript">
+function makeWarning(elementID) {
+	document.getElementById(elementID).style.background = "rgba(255, 0, 0, 0.37)";
+	document.getElementById(elementID).addEventListener("input", function(e) {  // Clear red background on input
+		e.target.style.background = "";
+	});
+	document.getElementById(elementID).focus();
+	document.getElementById(elementID).select();
+}
+
+function checkForm() {
+	// Check fields filled correctly
+
+	if (document.getElementById("name").value == "") {
+		makeWarning("name");
+		return false;
+	}
+
+	if (document.getElementById("address").value == "") {
+		makeWarning("address");
+		return false;
+	}
+
+	if (document.getElementById("phone").value == "") {
+		makeWarning("phone");
+		return false;
+	}
+
+	if (document.getElementById("imageURL").value == "") {
+		makeWarning("imageURL");
+		return false;
+	}
+
+	if (document.getElementById("categories").value == "") {
+		makeWarning("categories");
+		return false;
+	}
+
+	console.log(`CHECKING: ${document.getElementById('user').innerText}`);
+
+	if (document.getElementById('user').innerText == "Login") {
+		document.getElementById("addRestaurantFormMsg").innerText = "Waiting for Facebook Login...";
+		setTimeout(checkform, 200); // try again in 200ms
+		return false;
+	}
+
+	document.getElementById("restaurantForm").submit();
+
+	// TODO: Give a warning when coordinates fields arent filled
+
+}
+</script>
+
+<div class="container-fluid">
+	<div class="row" style="margin-top: 35px;">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="panel" style="padding: 20px">
+				<form action="/add-restaurant/" method="post" onsubmit="return checkForm();" id="restaurantForm">
+					<h3 style="text-align: center; color: rgb(111, 84, 153);"> Add Restaurant</h3>
+					<div class="panel-heading">
+						<h4>Search for restaurant name</h4>
+					</div>
+
+					<div class="form-group">
+						<input type="text" style="margin-bottom: 25px" class="col-lg-12 form-control" id="gPlacesSearch" placeholder="Search for restaurant name">
+					</div>
+					<h4 class="panel-heading"> Or enter restaurant details</h4>
+					<!-- FORM LABELS AND FIELDS -->
+					<div class="input-group">
+						<span class="input-group-addon">Name:</span>
+						<input type="text" class="form-control db-field" id="name" name="name" placeholder="Enter Name">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Address:</span>
+						<input type="text" class="form-control db-field" id="address" name="address" placeholder="Enter Restaurant Address">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Phone No:</span>
+						<input type="text" class="form-control db-field" id="phone" name="phone" placeholder="Enter restaurant phone no">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Image:</span>
+						<input type="text" class="form-control db-field" id="imageURL" name="imageURL" placeholder="Enter image URL">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon">Categories:</span>
+						<input type="text" class="form-control db-field" id="categories" name="categories" placeholder="Enter At least 1 category">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control db-field" id="coordsX" name="coordsX" placeholder="X Coordinates" style="display:none">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control db-field" id="coordsY" name="coordsY" placeholder="Y Coordinates" style="display:none">
+					</div>
+
+
+					<!-- ADD BUTTON -->
+					<div class="form-group" style="text-align: center;">
+						<button type="submit" id="addBtn" class="btn btn-success">
+							Add restaurant
+						</button>
+					</div>
+
+				</form>
+				<div class="text-center">
+					<p id="addRestaurantFormMsg"></p>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-md-5" style="margin-left: 20px; margin-top: 40px;">
+			<div style="display: flex;">
+				<div id="map" style="height: 400px; width: 500px; border-radius: 4px; border: 1px solid #C0C0C0;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+// First define this function so the google api callback to it actually
+// knows what we're talking about
+var map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: -34.397, lng: 150.644},
+		zoom: 8
+	});
+}
+</script>
+
+<!-- Load the google maps api (Will call above func when done) -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByY-2h6mdXG9JDmwt34MDz5PZiqYjnOfc&callback=initMap&libraries=places"></script>
+
+<!-- Load our script that actually starts using the gmaps api -->
+<script src="/static/addRestaurantPage.js" delay></script>
+
+
+
+{% endblock %}
