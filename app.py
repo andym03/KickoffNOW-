@@ -63,7 +63,7 @@ def rootRedirect():
 if __name__ == '__main__':
 
     app.config['SECRET_KEY']='82A71D784E477214F3772435473A1'
-    app.config['SESSION_COOKIE_NAME']='flasksession'
+    app.config['SESSION_COOKIE_NAME']='kickoffNow!'
 
     # pprint.pprint(app.config)
 
