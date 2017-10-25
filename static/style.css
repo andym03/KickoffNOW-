@@ -10,7 +10,14 @@ Credits: http://bootsnipp.com/snippets/featured/toggle-navbar-with-slide-down-an
 	text-align:center;
     margin-top: -11px;
 	}
-
+.floating-panel {
+	position:absolute;
+	left:10%;
+	padding:15px;
+	top: 90px;
+    z-index:3;
+	width: 80%;
+}
 .navbar-nav.navbar-right .btn {
 	position: relative;
 	z-index: 2;
