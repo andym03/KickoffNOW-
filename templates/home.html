@@ -52,6 +52,7 @@ function checkForm() {
 
 }
 </script>
+<input type="text" id="gPlacesSearch" class="floating-panel"placeholder="Search for a place to Kickoff">
 <div id="map"></div>
 
 
@@ -71,7 +72,7 @@ function initMap() {
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByY-2h6mdXG9JDmwt34MDz5PZiqYjnOfc&callback=initMap&libraries=places"></script>
 
 <!-- Load our script that actually starts using the gmaps api -->
-<script src="/static/addRestaurantPage.js" delay></script>
+<script src="/static/search.js" delay></script>
 
 
 {% endblock %}
